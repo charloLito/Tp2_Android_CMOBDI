@@ -6,7 +6,7 @@ import com.github.kittinunf.fuel.android.core.Json
 /**
  * Created by Administrateur on 2017-10-31.
  */
-class Succursale(jsonObject: Json){
+class Succursale(jsonObject: Json) : Item() {
     var appelatif:String=jsonObject.obj().getString("appelatif")
     var adresse:String=jsonObject.obj().getString("adresse")
     var ville:String=jsonObject.obj().getString("ville")
@@ -15,4 +15,9 @@ class Succursale(jsonObject: Json){
     var telephone:String=jsonObject.obj().getString("telephone")
     var information:String=jsonObject.obj().getString("information")
     var href: String=jsonObject.obj().getString("href")
+
+    override fun getAffichage() : String {
+        return appelatif
+    }
+
 }

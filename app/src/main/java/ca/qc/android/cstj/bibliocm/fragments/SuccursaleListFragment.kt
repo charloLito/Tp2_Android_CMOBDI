@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import ca.qc.android.cstj.bibliocm.R
 import ca.qc.android.cstj.bibliocm.adapters.SuccursalesRecyclerViewAdapter
 import ca.qc.android.cstj.bibliocm.helpers.SUCCURSALE_URL
+import ca.qc.android.cstj.bibliocm.models.Item
 import ca.qc.android.cstj.bibliocm.models.Succursale
 import com.github.kittinunf.fuel.android.core.Json
 import com.github.kittinunf.fuel.android.extension.responseJson
