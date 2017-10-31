@@ -1,7 +1,7 @@
 package ca.qc.android.cstj.bibliocm.models
 
 import com.github.kittinunf.fuel.android.core.Json
-import org.json.JSONObject
+
 
 /**
  * Created by Administrateur on 2017-10-31.
