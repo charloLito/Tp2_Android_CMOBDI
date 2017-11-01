@@ -5,34 +5,35 @@ import android.os.Bundle
 import android.app.Fragment
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
-
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
 import ca.qc.android.cstj.bibliocm.R
-import ca.qc.android.cstj.bibliocm.adapters.OnListFragmentItemInteractionListener
-import ca.qc.android.cstj.bibliocm.adapters.ItemRecyclerViewAdapter
+import ca.qc.android.cstj.bibliocm.adapters.LivresRecyclerViewAdapter
 import ca.qc.android.cstj.bibliocm.helpers.CATEGORIE_URL
-import ca.qc.android.cstj.bibliocm.models.Categorie
+import ca.qc.android.cstj.bibliocm.models.Livre
 import com.github.kittinunf.fuel.android.core.Json
 import com.github.kittinunf.fuel.android.extension.responseJson
 import com.github.kittinunf.fuel.httpGet
 
-/**
- * A simple [Fragment] subclass.
- * Activities that contain this fragment must implement the
- * [CategorieListFragment.OnFragmentInteractionListener] interface
- * to handle interaction events.
- * Use the [CategorieListFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class CategorieListFragment : Fragment() {
 
+/**
+ * A fragment representing a list of Items.
+ *
+ *
+ * Activities containing this fragment MUST implement the [OnListFragmentInteractionListener]
+ * interface.
+ */
+/**
+ * Mandatory empty constructor for the fragment manager to instantiate the
+ * fragment (e.g. upon screen orientation changes).
+ */
+class LivreListFragment : Fragment() {
     // TODO: Customize parameters
     private var mColumnCount = 1
-    private var mListener: OnListFragmentItemInteractionListener? = null
+    private var mListener: OnListFragmentInteractionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +47,7 @@ class CategorieListFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
 
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_categorie_list, container, false)
+        val view = inflater.inflate(R.layout.fragment_livre_list, container, false)
 
         // Set the adapter
         if (view is RecyclerView) {
@@ -56,18 +57,38 @@ class CategorieListFragment : Fragment() {
             } else {
                 view.layoutManager = GridLayoutManager(context, mColumnCount)
             }
-            // Récupérer les données d'une sucursale grâce à notre Service Web développé au TP1
+
+            // Faire un get sur le href de la catégorie touchée.
+            // "href": "https://issatherrien-tp01-olivierissacstj.c9users.io/categories/NmVhMjk1ZDctYzk2My00NGY3LTkxOGMtY2UyOWU3YTI1Mjdk"
+            // Ajouter "/livres"
+
+
+
             CATEGORIE_URL.httpGet().responseJson{ request, response, result ->
-                view.adapter= ItemRecyclerViewAdapter(createCategorieList(result.get()),mListener)
+                view.adapter= LivresRecyclerViewAdapter(createLivreList(result.get()), mListener)
             }
         }
         return view
     }
 
+    //Crée la liste de toutes les succursales grâce au Json reçu par notre service web
+    fun createLivreList(json: Json):List<Livre>{
+        var livres= mutableListOf<Livre>()
+        val tabJson=json.array()
 
-    fun onButtonPressed(categorie: Categorie) {
-        if (mListener != null) {
-            mListener!!.OnFra
+        for (i in 0.. (json.array().length()-1)){
+            livres.add(Livre(Json(tabJson[i].toString())))
+        }
+        return livres
+    }
+
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is OnListFragmentInteractionListener) {
+            mListener = context
+        } else {
+            throw RuntimeException(context.toString() + " must implement OnListFragmentInteractionListener")
         }
     }
 
@@ -76,34 +97,11 @@ class CategorieListFragment : Fragment() {
         mListener = null
     }
 
-    //Crée la liste de toutes les succursales grâce au Json reçu par notre service web
-    fun createCategorieList(json: Json):List<Categorie>{
-        var categories= mutableListOf<Categorie>()
-        val tabJson=json.array()
 
-        for (i in 0.. (json.array().length()-1)){
-            categories.add(Categorie(Json(tabJson[i].toString())))
-        }
-        return categories
+    interface OnListFragmentInteractionListener {
+        // TODO: Update argument type and name
+        fun onListFragmentInteraction(livre: Livre)
     }
-
-
-
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is OnListFragmentItemInteractionListener) {
-            mListener = context
-        } else {
-            throw RuntimeException(context.toString() + " must implement OnListFragmentInteractionListener")
-        }
-    }
-
-
-
-
-
-
 
     companion object {
 
@@ -111,8 +109,8 @@ class CategorieListFragment : Fragment() {
         private val ARG_COLUMN_COUNT = "column-count"
 
         // TODO: Customize parameter initialization
-        fun newInstance(columnCount: Int): CategorieListFragment {
-            val fragment = CategorieListFragment()
+        fun newInstance(columnCount: Int): LivreListFragment {
+            val fragment = LivreListFragment()
             val args = Bundle()
             args.putInt(ARG_COLUMN_COUNT, columnCount)
             fragment.arguments = args
