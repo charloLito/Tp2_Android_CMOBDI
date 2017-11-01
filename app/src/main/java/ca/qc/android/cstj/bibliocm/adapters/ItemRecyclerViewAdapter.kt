@@ -4,13 +4,10 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import ca.qc.android.cstj.bibliocm.R
 
-import ca.qc.android.cstj.bibliocm.fragments.SuccursaleListFragment.OnListFragmentInteractionListener
-import ca.qc.android.cstj.bibliocm.models.Categorie
+
 import ca.qc.android.cstj.bibliocm.models.Item
-import ca.qc.android.cstj.bibliocm.models.Succursale
 import kotlinx.android.synthetic.main.item_card.view.*
 
 /**
@@ -18,8 +15,8 @@ import kotlinx.android.synthetic.main.item_card.view.*
  * specified [OnListFragmentInteractionListener].
  * TODO: Replace the implementation with code for your data type.
  */
-class SuccursalesRecyclerViewAdapter(private val mValues: List<Item>,
-                                     private val mListener: OnListFragmentInteractionListener?) : RecyclerView.Adapter<SuccursalesRecyclerViewAdapter.ViewHolder>() {
+class ItemRecyclerViewAdapter(private val mValues: List<Item>,
+                              private val mListener: OnListFragmentItemInteractionListener?) : RecyclerView.Adapter<ItemRecyclerViewAdapter.ViewHolder>() {
 
     public override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.getContext())
@@ -30,11 +27,8 @@ class SuccursalesRecyclerViewAdapter(private val mValues: List<Item>,
     public override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(mValues[position])
         holder.mView.setOnClickListener{
-            when(holder.item){
-                is Succursale -> {  val succursale = holder.item as Succursale
-                                    mListener!!.onListFragmentInteraction(succursale)}
-                is Categorie -> {/*TODO: Categorie*/}
-            }
+            mListener!!.onListFragmentInteraction(holder.item)
+
         }
     }
 
@@ -43,7 +37,7 @@ class SuccursalesRecyclerViewAdapter(private val mValues: List<Item>,
     }
 
     inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
-        var lblNom= mView.lblNom
+        var lblNom = mView.lblNom
         var item: Item? = null
         fun bind(item: Item){
             this.item=item

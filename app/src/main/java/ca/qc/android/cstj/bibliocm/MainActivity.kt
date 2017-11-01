@@ -8,16 +8,19 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
+import ca.qc.android.cstj.bibliocm.adapters.OnListFragmentItemInteractionListener
 import ca.qc.android.cstj.bibliocm.fragments.SuccursaleListFragment
+import ca.qc.android.cstj.bibliocm.fragments.CategorieListFragment
+import ca.qc.android.cstj.bibliocm.models.Categorie
+import ca.qc.android.cstj.bibliocm.models.Item
 import ca.qc.android.cstj.bibliocm.models.Succursale
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
 class MainActivity : AppCompatActivity(),
                         NavigationView.OnNavigationItemSelectedListener,
-                        SuccursaleListFragment.OnListFragmentInteractionListener{
-
-
+                        OnListFragmentItemInteractionListener{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -36,6 +39,7 @@ class MainActivity : AppCompatActivity(),
         transaction.replace(R.id.contentFrame,SuccursaleListFragment.newInstance(1))
         transaction.commit()
     }
+
 
     override fun onBackPressed() {
         if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
@@ -66,10 +70,15 @@ class MainActivity : AppCompatActivity(),
         when (item.itemId) {
             R.id.nav_succursale -> {
 
+                val transaction=fragmentManager.beginTransaction()
+                transaction.replace(R.id.contentFrame,SuccursaleListFragment.newInstance(1))
+                transaction.commit()
 
             }
             R.id.nav_categorie -> {
-
+                val transaction=fragmentManager.beginTransaction()
+                transaction.replace(R.id.contentFrame,CategorieListFragment.newInstance(1))
+                transaction.commit()
             }
 
         }
@@ -78,7 +87,16 @@ class MainActivity : AppCompatActivity(),
         return true
     }
 
-    override fun onListFragmentInteraction(succursale: Succursale?) {
-
+    override fun onListFragmentInteraction(item: Item?) {
+        when(item){
+            is Succursale -> {item
+                Toast.makeText(this, item.appelatif, Toast.LENGTH_LONG).show()
+            }
+            is Categorie -> {item
+                Toast.makeText(this, item.categorie, Toast.LENGTH_LONG).show()
+            }
+        }
     }
+
+
 }
