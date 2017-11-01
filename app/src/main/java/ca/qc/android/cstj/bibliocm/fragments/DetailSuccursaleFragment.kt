@@ -25,10 +25,10 @@ class DetailSuccursaleFragment(private val href: String) : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
-        val url = "$SUCCURSALE_URL/$href"
+        //val url = "$SUCCURSALE_URL/$href"
 
-        url.httpGet().responseJson {request,response,result ->
-            when(response.httpStatusCode){
+        href.httpGet().responseJson { request, response, result ->
+            when (response.httpStatusCode) {
                 200 -> {
                     // Quand ça marche
                     val succursale = Succursale(result.get())
@@ -44,30 +44,5 @@ class DetailSuccursaleFragment(private val href: String) : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_detail_succursale, container, false)
     }
-
-    /*companion object {
-        // TODO: Rename parameter arguments, choose names that match
-        // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-        private val ARG_PARAM1 = "param1"
-        private val ARG_PARAM2 = "param2"
-
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment DetailSuccursaleFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        fun newInstance(param1: String, param2: String): DetailSuccursaleFragment {
-            val fragment = DetailSuccursaleFragment()
-            val args = Bundle()
-            args.putString(ARG_PARAM1, param1)
-            args.putString(ARG_PARAM2, param2)
-            fragment.arguments = args
-            return fragment
-        }
-    }*/
 
 }// Required empty public constructor
