@@ -82,7 +82,6 @@ class MainActivity : AppCompatActivity(),
                 transaction.addToBackStack("categoriesList")
                 transaction.commit()
             }
-
         }
 
         drawer_layout.closeDrawer(GravityCompat.START)
