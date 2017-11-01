@@ -11,9 +11,10 @@ import android.view.View
 import android.view.ViewGroup
 
 import ca.qc.android.cstj.bibliocm.R
-import ca.qc.android.cstj.bibliocm.adapters.SuccursalesRecyclerViewAdapter
+import ca.qc.android.cstj.bibliocm.adapters.OnListFragmentItemInteractionListener
+import ca.qc.android.cstj.bibliocm.adapters.ItemRecyclerViewAdapter
 import ca.qc.android.cstj.bibliocm.helpers.SUCCURSALE_URL
-import ca.qc.android.cstj.bibliocm.models.Item
+
 import ca.qc.android.cstj.bibliocm.models.Succursale
 import com.github.kittinunf.fuel.android.core.Json
 import com.github.kittinunf.fuel.android.extension.responseJson
@@ -33,7 +34,7 @@ import com.github.kittinunf.fuel.httpGet
 class SuccursaleListFragment : Fragment() {
     // TODO: Customize parameters
     private var mColumnCount = 1
-    private var mListener: OnListFragmentInteractionListener? = null
+    private var mListener: OnListFragmentItemInteractionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,7 +58,7 @@ class SuccursaleListFragment : Fragment() {
             }
             //Récupérer les données d'une sucursale grâce à notre Service Web développé au TP1
             SUCCURSALE_URL.httpGet().responseJson{request,response,result ->
-                view.adapter=SuccursalesRecyclerViewAdapter(createSuccursaleList(result.get()),mListener)
+                view.adapter= ItemRecyclerViewAdapter(createSuccursaleList(result.get()),mListener)
             }
         }
         return view
@@ -77,7 +78,7 @@ class SuccursaleListFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is OnListFragmentInteractionListener) {
+        if (context is OnListFragmentItemInteractionListener) {
             mListener = context
         } else {
             throw RuntimeException(context.toString() + " must implement OnListFragmentInteractionListener")
@@ -89,19 +90,8 @@ class SuccursaleListFragment : Fragment() {
         mListener = null
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     *
-     *
-     * See the Android Training lesson [Communicating with Other Fragments](http://developer.android.com/training/basics/fragments/communicating.html) for more information.
-     */
-    interface OnListFragmentInteractionListener {
-        // TODO: Update argument type and name
-        fun onListFragmentInteraction(succursale: Succursale?)
-    }
+
+
 
     companion object {
 
