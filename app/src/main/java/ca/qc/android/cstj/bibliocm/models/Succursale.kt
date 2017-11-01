@@ -13,6 +13,7 @@ class Succursale(jsonObject: Json) : Item() {
     var codePostal:String=jsonObject.obj().getString("codePostal")
     var province:String=jsonObject.obj().getString("province")
     var telephone:String=jsonObject.obj().getString("telephone")
+    var telecopieur:String = jsonObject.obj().getString("telecopieur")
     var information:String=jsonObject.obj().getString("information")
     var href: String=jsonObject.obj().getString("href")
 

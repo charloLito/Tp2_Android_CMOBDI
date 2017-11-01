@@ -34,6 +34,13 @@ class DetailSuccursaleFragment(private val href: String) : Fragment() {
                     val succursale = Succursale(result.get())
                     Toast.makeText(activity.applicationContext, "No:${succursale.appelatif}", Toast.LENGTH_SHORT).show()
                     lblNomSuccursaleDetail.text = succursale.appelatif
+                    lblAdresseSuccursaleDetail.text = succursale.adresse
+                    lblVilleSuccursaleDetail.text = succursale.ville
+                    lblCodePostalSuccursaleDetail.text = succursale.codePostal
+                    lblProvinceSuccursaleDetail.text = succursale.province
+                    lblTelephoneSuccursaleDetail.text = succursale.telephone
+                    lblTeleCopieurSuccursaleDetail.text = succursale.telecopieur
+                    lblInformationSuccursaleDetail.text = succursale.information
                 }
 
                 404 -> {
