@@ -72,12 +72,14 @@ class MainActivity : AppCompatActivity(),
 
                 val transaction=fragmentManager.beginTransaction()
                 transaction.replace(R.id.contentFrame,SuccursaleListFragment.newInstance(1))
+                transaction.addToBackStack("succursalesList")
                 transaction.commit()
 
             }
             R.id.nav_categorie -> {
                 val transaction=fragmentManager.beginTransaction()
                 transaction.replace(R.id.contentFrame,CategorieListFragment.newInstance(1))
+                transaction.addToBackStack("categoriesList")
                 transaction.commit()
             }
 
