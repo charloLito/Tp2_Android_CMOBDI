@@ -1,7 +1,7 @@
 package ca.qc.android.cstj.bibliocm
 
+
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
@@ -10,8 +10,9 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import ca.qc.android.cstj.bibliocm.adapters.OnListFragmentItemInteractionListener
-import ca.qc.android.cstj.bibliocm.fragments.SuccursaleListFragment
 import ca.qc.android.cstj.bibliocm.fragments.CategorieListFragment
+import ca.qc.android.cstj.bibliocm.fragments.DetailSuccursaleFragment
+import ca.qc.android.cstj.bibliocm.fragments.SuccursaleListFragment
 import ca.qc.android.cstj.bibliocm.models.Categorie
 import ca.qc.android.cstj.bibliocm.models.Item
 import ca.qc.android.cstj.bibliocm.models.Succursale
@@ -88,10 +89,14 @@ class MainActivity : AppCompatActivity(),
         return true
     }
 
+
     override fun onListFragmentInteraction(item: Item?) {
         when(item){
             is Succursale -> {item
-                Toast.makeText(this, item.appelatif, Toast.LENGTH_LONG).show()
+                val transaction=fragmentManager.beginTransaction()
+                transaction.replace(R.id.contentFrame,DetailSuccursaleFragment(item.href))
+                transaction.addToBackStack("succursalesList")
+                transaction.commit()
             }
             is Categorie -> {item
                 Toast.makeText(this, item.categorie, Toast.LENGTH_LONG).show()
