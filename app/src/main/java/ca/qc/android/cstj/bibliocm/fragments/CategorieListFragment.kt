@@ -67,7 +67,7 @@ class CategorieListFragment : Fragment() {
 
     fun onButtonPressed(categorie: Categorie) {
         if (mListener != null) {
-            mListener!!.OnFra
+            mListener!!.onListFragmentInteraction(categorie)
         }
     }
 

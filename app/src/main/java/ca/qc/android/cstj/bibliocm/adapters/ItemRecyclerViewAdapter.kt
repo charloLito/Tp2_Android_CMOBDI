@@ -8,6 +8,7 @@ import ca.qc.android.cstj.bibliocm.R
 
 
 import ca.qc.android.cstj.bibliocm.models.Item
+import kotlinx.android.synthetic.main.fragment_detail_succursale.view.*
 import kotlinx.android.synthetic.main.item_card.view.*
 
 /**
@@ -37,7 +38,7 @@ class ItemRecyclerViewAdapter(private val mValues: List<Item>,
     }
 
     inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
-        var lblNom = mView.lblNom
+        var lblNom = mView.lbltitrelbl
         var item: Item? = null
         fun bind(item: Item){
             this.item=item

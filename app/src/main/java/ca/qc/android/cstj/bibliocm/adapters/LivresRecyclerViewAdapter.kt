@@ -10,7 +10,7 @@ import ca.qc.android.cstj.bibliocm.R
 import ca.qc.android.cstj.bibliocm.fragments.LivreListFragment.OnListFragmentInteractionListener
 
 import ca.qc.android.cstj.bibliocm.models.Livre
-
+import kotlinx.android.synthetic.main.livre_card.view.*
 
 
 class LivresRecyclerViewAdapter(private val mValues: List<Livre>,
@@ -22,13 +22,11 @@ class LivresRecyclerViewAdapter(private val mValues: List<Livre>,
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.mItem = mValues[position]
-        holder.mIdView.text = mValues[position].id
-        holder.mContentView.text = mValues[position].content
+    public override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bind(mValues[position])
+        holder.mView.setOnClickListener{
+            mListener!!.onListFragmentInteraction(holder.livre)
 
-        holder.mView.setOnClickListener {
-            mListener?.onListFragmentInteraction(holder.mItem)
         }
     }
 
@@ -37,17 +35,14 @@ class LivresRecyclerViewAdapter(private val mValues: List<Livre>,
     }
 
     inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
-        val mIdView: TextView
-        val mContentView: TextView
-        var mItem: Livre? = null
-
-        init {
-            mIdView = mView.findViewById(R.id.id) as TextView
-            mContentView = mView.findViewById(R.id.content) as TextView
+        var lblTitre = mView.lblTitre
+        var livre: Livre? = null
+        fun bind(livre: Livre){
+            this.livre=livre
+            lblTitre.text=livre.
         }
 
-        override fun toString(): String {
-            return super.toString() + " '" + mContentView.text + "'"
-        }
+
+
     }
 }

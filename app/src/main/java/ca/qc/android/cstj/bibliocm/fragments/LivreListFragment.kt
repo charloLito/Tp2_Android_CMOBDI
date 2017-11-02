@@ -13,24 +13,18 @@ import android.view.ViewGroup
 import ca.qc.android.cstj.bibliocm.R
 import ca.qc.android.cstj.bibliocm.adapters.LivresRecyclerViewAdapter
 import ca.qc.android.cstj.bibliocm.helpers.CATEGORIE_URL
+import ca.qc.android.cstj.bibliocm.models.Item
 import ca.qc.android.cstj.bibliocm.models.Livre
 import com.github.kittinunf.fuel.android.core.Json
 import com.github.kittinunf.fuel.android.extension.responseJson
 import com.github.kittinunf.fuel.httpGet
 
 
-/**
- * A fragment representing a list of Items.
- *
- *
- * Activities containing this fragment MUST implement the [OnListFragmentInteractionListener]
- * interface.
- */
-/**
- * Mandatory empty constructor for the fragment manager to instantiate the
- * fragment (e.g. upon screen orientation changes).
- */
-class LivreListFragment : Fragment() {
+
+class LivreListFragment(item: Item): Fragment() {
+
+
+
     // TODO: Customize parameters
     private var mColumnCount = 1
     private var mListener: OnListFragmentInteractionListener? = null

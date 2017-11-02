@@ -12,9 +12,11 @@ import android.widget.Toast
 import ca.qc.android.cstj.bibliocm.adapters.OnListFragmentItemInteractionListener
 import ca.qc.android.cstj.bibliocm.fragments.CategorieListFragment
 import ca.qc.android.cstj.bibliocm.fragments.DetailSuccursaleFragment
+import ca.qc.android.cstj.bibliocm.fragments.LivreListFragment
 import ca.qc.android.cstj.bibliocm.fragments.SuccursaleListFragment
 import ca.qc.android.cstj.bibliocm.models.Categorie
 import ca.qc.android.cstj.bibliocm.models.Item
+import ca.qc.android.cstj.bibliocm.models.Livre
 import ca.qc.android.cstj.bibliocm.models.Succursale
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
@@ -99,8 +101,15 @@ class MainActivity : AppCompatActivity(),
                 transaction.commit()
             }
             is Categorie -> {item
-                Toast.makeText(this, item.categorie, Toast.LENGTH_LONG).show()
+                val transaction=fragmentManager.beginTransaction()
+                transaction.replace(R.id.contentFrame,LivreListFragment(item.href))
+                transaction.addToBackStack("categorieList")
+                transaction.commit()
             }
         }
+    }
+
+    override fun onListFragmentInteraction(livre: Livre){
+
     }
 }
