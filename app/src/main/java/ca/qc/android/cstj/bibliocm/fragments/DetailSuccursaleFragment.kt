@@ -25,8 +25,6 @@ class DetailSuccursaleFragment(private val href: String) : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
-        //val url = "$SUCCURSALE_URL/$href"
-
         href.httpGet().responseJson { request, response, result ->
             when (response.httpStatusCode) {
                 200 -> {
@@ -34,13 +32,13 @@ class DetailSuccursaleFragment(private val href: String) : Fragment() {
                     val succursale = Succursale(result.get())
                     Toast.makeText(activity.applicationContext, "No:${succursale.appelatif}", Toast.LENGTH_SHORT).show()
                     lblNomSuccursaleDetail.text = succursale.appelatif
-                    lblAdresseSuccursaleDetail.text = succursale.adresse
-                    lblVilleSuccursaleDetail.text = succursale.ville
-                    lblCodePostalSuccursaleDetail.text = succursale.codePostal
-                    lblProvinceSuccursaleDetail.text = succursale.province
-                    lblTelephoneSuccursaleDetail.text = succursale.telephone
-                    lblTeleCopieurSuccursaleDetail.text = succursale.telecopieur
-                    lblInformationSuccursaleDetail.text = succursale.information
+                    lblAdresseSuccursaleDetail.text = "Adresse:\n${succursale.adresse}"
+                    lblVilleSuccursaleDetail.text = "Ville:\n${succursale.ville}"
+                    lblCodePostalSuccursaleDetail.text = "Code Postal:\n${succursale.codePostal}"
+                    lblProvinceSuccursaleDetail.text = "Province:\n${succursale.province}"
+                    lblTelephoneSuccursaleDetail.text = "Téléphone:\n${succursale.telephone}"
+                    lblTelecopieurSuccursaleDetail.text = "Télécopieur:\n${succursale.telecopieur}"
+                    lblInformationSuccursaleDetail.text = "Heure d'ouverture:\n${succursale.information}"
                 }
 
                 404 -> {
