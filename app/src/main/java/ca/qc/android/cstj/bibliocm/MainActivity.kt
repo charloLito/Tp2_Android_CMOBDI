@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import ca.qc.android.cstj.bibliocm.adapters.LivresRecyclerViewAdapter
 import ca.qc.android.cstj.bibliocm.adapters.OnListFragmentItemInteractionListener
 import ca.qc.android.cstj.bibliocm.fragments.CategorieListFragment
 import ca.qc.android.cstj.bibliocm.fragments.DetailSuccursaleFragment
@@ -23,7 +24,10 @@ import kotlinx.android.synthetic.main.app_bar_main.*
 
 class MainActivity : AppCompatActivity(),
                         NavigationView.OnNavigationItemSelectedListener,
-                        OnListFragmentItemInteractionListener{
+                        OnListFragmentItemInteractionListener
+                        ,LivreListFragment.OnListFragmentInteractionListener{
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -106,13 +110,16 @@ class MainActivity : AppCompatActivity(),
                 transaction.addToBackStack("categorieList")
                 transaction.commit()
             }
-            is Livre -> {item
 
-                // TODO: details d'un livre
-
-            }
         }
+
     }
+
+
+    override fun onListLivreFragmentInteraction(livre: Livre?) {
+    }
+
+
 
 
 }

@@ -8,8 +8,10 @@ import ca.qc.android.cstj.bibliocm.R
 
 
 import ca.qc.android.cstj.bibliocm.models.Item
+import ca.qc.android.cstj.bibliocm.models.Livre
 import kotlinx.android.synthetic.main.fragment_detail_succursale.view.*
 import kotlinx.android.synthetic.main.item_card.view.*
+import kotlinx.android.synthetic.main.livre_card.view.*
 
 /**
  * [RecyclerView.Adapter] that can display a [DummyItem] and makes a call to the
@@ -38,14 +40,20 @@ class ItemRecyclerViewAdapter(private val mValues: List<Item>,
     }
 
     inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
+        var lblAuteur = mView.lblAuteur
         var lblNom = mView.lbltitre
         var item: Item? = null
         fun bind(item: Item){
             this.item=item
             lblNom.text=item.getAffichage()
+            /*if(item is Livre){
+                lblAuteur.text = item.auteur
+            }*/
+
         }
 
 
 
     }
+
 }

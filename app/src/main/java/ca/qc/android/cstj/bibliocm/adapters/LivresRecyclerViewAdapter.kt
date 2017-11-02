@@ -1,4 +1,4 @@
-/*package ca.qc.android.cstj.bibliocm.adapters
+package ca.qc.android.cstj.bibliocm.adapters
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -14,7 +14,8 @@ import kotlinx.android.synthetic.main.livre_card.view.*
 
 
 class LivresRecyclerViewAdapter(private val mValues: List<Livre>,
-                                private val mListener: OnListFragmentInteractionListener?) : RecyclerView.Adapter<LivresRecyclerViewAdapter.ViewHolder>() {
+                                private val mListener: OnListFragmentInteractionListener?)
+    : RecyclerView.Adapter<LivresRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -25,7 +26,7 @@ class LivresRecyclerViewAdapter(private val mValues: List<Livre>,
     public override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(mValues[position])
         holder.mView.setOnClickListener{
-            mListener!!.onListFragmentInteraction(holder.livre)
+            mListener!!.onListLivreFragmentInteraction(holder.livre)
 
         }
     }
@@ -37,12 +38,14 @@ class LivresRecyclerViewAdapter(private val mValues: List<Livre>,
     inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
         var lblTitre = mView.lblTitre
         var livre: Livre? = null
+        var lblAuteur=mView.lblAuteur
         fun bind(livre: Livre){
             this.livre=livre
             lblTitre.text=livre.titre
+            lblAuteur.text=livre.auteur
         }
 
 
 
     }
-}*/
+}
