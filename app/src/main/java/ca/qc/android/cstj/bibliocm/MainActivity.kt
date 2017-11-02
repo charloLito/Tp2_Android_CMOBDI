@@ -102,14 +102,17 @@ class MainActivity : AppCompatActivity(),
             }
             is Categorie -> {item
                 val transaction=fragmentManager.beginTransaction()
-                transaction.replace(R.id.contentFrame,LivreListFragment(item.href))
+                transaction.replace(R.id.contentFrame,LivreListFragment(item.href+"/livres"))
                 transaction.addToBackStack("categorieList")
                 transaction.commit()
+            }
+            is Livre -> {item
+
+                // TODO: details d'un livre
+
             }
         }
     }
 
-    override fun onListFragmentInteraction(livre: Livre){
 
-    }
 }

@@ -38,7 +38,7 @@ class ItemRecyclerViewAdapter(private val mValues: List<Item>,
     }
 
     inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
-        var lblNom = mView.lbltitrelbl
+        var lblNom = mView.lbltitre
         var item: Item? = null
         fun bind(item: Item){
             this.item=item

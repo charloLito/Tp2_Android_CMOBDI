@@ -1,4 +1,4 @@
-package ca.qc.android.cstj.bibliocm.adapters
+/*package ca.qc.android.cstj.bibliocm.adapters
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -39,10 +39,10 @@ class LivresRecyclerViewAdapter(private val mValues: List<Livre>,
         var livre: Livre? = null
         fun bind(livre: Livre){
             this.livre=livre
-            lblTitre.text=livre.
+            lblTitre.text=livre.titre
         }
 
 
 
     }
-}
+}*/

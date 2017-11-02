@@ -11,7 +11,9 @@ import android.view.View
 import android.view.ViewGroup
 
 import ca.qc.android.cstj.bibliocm.R
-import ca.qc.android.cstj.bibliocm.adapters.LivresRecyclerViewAdapter
+import ca.qc.android.cstj.bibliocm.adapters.ItemRecyclerViewAdapter
+import ca.qc.android.cstj.bibliocm.adapters.OnListFragmentItemInteractionListener
+//import ca.qc.android.cstj.bibliocm.adapters.LivresRecyclerViewAdapter
 import ca.qc.android.cstj.bibliocm.helpers.CATEGORIE_URL
 import ca.qc.android.cstj.bibliocm.models.Item
 import ca.qc.android.cstj.bibliocm.models.Livre
@@ -21,13 +23,13 @@ import com.github.kittinunf.fuel.httpGet
 
 
 
-class LivreListFragment(item: Item): Fragment() {
+class LivreListFragment(categorieHref: String): Fragment() {
 
 
-
+    private var href = categorieHref
     // TODO: Customize parameters
     private var mColumnCount = 1
-    private var mListener: OnListFragmentInteractionListener? = null
+    private var mListener: OnListFragmentItemInteractionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,8 +60,8 @@ class LivreListFragment(item: Item): Fragment() {
 
 
 
-            CATEGORIE_URL.httpGet().responseJson{ request, response, result ->
-                view.adapter= LivresRecyclerViewAdapter(createLivreList(result.get()), mListener)
+            href.httpGet().responseJson{ request, response, result ->
+                view.adapter= ItemRecyclerViewAdapter(createLivreList(result.get()), mListener)
             }
         }
         return view
@@ -79,7 +81,7 @@ class LivreListFragment(item: Item): Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is OnListFragmentInteractionListener) {
+        if (context is OnListFragmentItemInteractionListener) {
             mListener = context
         } else {
             throw RuntimeException(context.toString() + " must implement OnListFragmentInteractionListener")
@@ -101,10 +103,9 @@ class LivreListFragment(item: Item): Fragment() {
 
         // TODO: Customize parameter argument names
         private val ARG_COLUMN_COUNT = "column-count"
-
         // TODO: Customize parameter initialization
         fun newInstance(columnCount: Int): LivreListFragment {
-            val fragment = LivreListFragment()
+            val fragment = LivreListFragment("bitch")
             val args = Bundle()
             args.putInt(ARG_COLUMN_COUNT, columnCount)
             fragment.arguments = args
