@@ -18,7 +18,20 @@ class Succursale(jsonObject: Json) : Item() {
     var href: String=jsonObject.obj().getString("href")
 
     override fun getAffichage() : String {
+        var appelatifCoupe: String
+
+
+
+        var index: Int
+
+        index = appelatif.indexOf(" ", 0)
+
+        if(index > 0) {
+            appelatifCoupe = appelatif.substring(0, index)
+            return appelatifCoupe
+        }
         return appelatif
+
     }
 
 }

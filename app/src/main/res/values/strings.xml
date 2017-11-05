@@ -8,7 +8,11 @@
 
     <string name="telephone">Téléphone</string>
     <string name="parAuteur">par </string>
+    <string name="vers">></string>
+    <string name="dollar"> $</string>
+    <string name="categorieTest">Catégorie en attendant</string>
+    <string name="ISBN">ISBN :</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
 </resources>

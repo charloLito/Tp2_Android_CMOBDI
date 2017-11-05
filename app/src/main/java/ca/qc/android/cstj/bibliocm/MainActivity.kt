@@ -11,10 +11,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import ca.qc.android.cstj.bibliocm.adapters.LivresRecyclerViewAdapter
 import ca.qc.android.cstj.bibliocm.adapters.OnListFragmentItemInteractionListener
-import ca.qc.android.cstj.bibliocm.fragments.CategorieListFragment
-import ca.qc.android.cstj.bibliocm.fragments.DetailSuccursaleFragment
-import ca.qc.android.cstj.bibliocm.fragments.LivreListFragment
-import ca.qc.android.cstj.bibliocm.fragments.SuccursaleListFragment
+import ca.qc.android.cstj.bibliocm.fragments.*
 import ca.qc.android.cstj.bibliocm.models.Categorie
 import ca.qc.android.cstj.bibliocm.models.Item
 import ca.qc.android.cstj.bibliocm.models.Livre
@@ -117,6 +114,11 @@ class MainActivity : AppCompatActivity(),
 
 
     override fun onListLivreFragmentInteraction(livre: Livre?) {
+        val transaction=fragmentManager.beginTransaction()
+        if(livre != null)
+        transaction.replace(R.id.contentFrame,DetailLivreFragment(livre.href))
+        transaction.addToBackStack("livreList")
+        transaction.commit()
     }
 
 

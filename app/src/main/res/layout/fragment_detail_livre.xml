@@ -1,0 +1,88 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ca.qc.android.cstj.bibliocm.fragments.DetailLivreFragment">
+
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:orientation="vertical"
+        android:layout_margin="5dp"
+        >
+
+        <ImageView
+            android:id="@+id/imgLivreDetail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_marginLeft="151dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:textAlignment="gravity">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/lblPrixDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="@string/dollar"
+                android:textColor="#000" />
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/lblAuteurDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000" />
+
+        <TextView
+            android:id="@+id/lblCategorieDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/categorieTest"
+            android:textColor="#000" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ISBN"
+                android:textColor="#000" />
+
+            <TextView
+                android:id="@+id/lblISBNDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textColor="#000" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</FrameLayout>
