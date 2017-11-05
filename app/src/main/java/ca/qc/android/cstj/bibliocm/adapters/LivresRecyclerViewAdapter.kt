@@ -10,6 +10,7 @@ import ca.qc.android.cstj.bibliocm.R
 import ca.qc.android.cstj.bibliocm.fragments.LivreListFragment.OnListFragmentInteractionListener
 
 import ca.qc.android.cstj.bibliocm.models.Livre
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.livre_card.view.*
 
 
@@ -36,15 +37,28 @@ class LivresRecyclerViewAdapter(private val mValues: List<Livre>,
     }
 
     inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
+
         var lblTitre = mView.lblTitre
+        var lblAuteur = mView.lblAuteur
+        var imgLivre = mView.imgLivre
+
         var livre: Livre? = null
-        var lblAuteur=mView.lblAuteur
+
+
+
         fun bind(livre: Livre){
             this.livre=livre
+
             lblTitre.text=livre.titre
             lblAuteur.text=livre.auteur
-        }
 
+            var urlImg = livre.image
+
+            Picasso.with(imgLivre.context).load(urlImg).placeholder(R.drawable.loading).fit().centerInside().into(imgLivre)
+
+            //Picasso.with(imgLivre.context).load(R.drawable.load).into(imgLivre)
+
+        }
 
 
     }
