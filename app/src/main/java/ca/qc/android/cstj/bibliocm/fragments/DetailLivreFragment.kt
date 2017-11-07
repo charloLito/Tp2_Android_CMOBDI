@@ -22,11 +22,18 @@ class DetailLivreFragment(private val href: String) : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
-        href.httpGet().responseJson { request, response, result ->
+        var leHref=href+"?expand=commentaires"
+
+        leHref.httpGet().responseJson { request, response, result ->
             when (response.httpStatusCode) {
                 200 -> {
                     // Quand ça marche
                     val livre = Livre(result.get())
+
+                    val lesCommentaires=result.get().obj().getJSONArray("commentaires")
+                    livre.ConstruireListeCommentaires(lesCommentaires)
+
+
 
 
                     var urlImg = livre.image
@@ -34,8 +41,8 @@ class DetailLivreFragment(private val href: String) : Fragment() {
 
                     lblPrixDetail.text = livre.prix.toString()
                     lblAuteurDetail.text = livre.auteur
-                    // TODO : Nom de la catégorie
 
+                    lblCategorieDetail.text=livre.categorieNom
                     lblISBNDetail.text = livre.ISBN
 
 
