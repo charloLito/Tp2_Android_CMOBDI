@@ -3,12 +3,15 @@ package ca.qc.android.cstj.bibliocm.fragments
 
 import android.os.Bundle
 import android.app.Fragment
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 
 import ca.qc.android.cstj.bibliocm.R
+import ca.qc.android.cstj.bibliocm.adapters.CommentaireRecyclerViewAdapter
+import ca.qc.android.cstj.bibliocm.models.Commentaire
 import ca.qc.android.cstj.bibliocm.models.Livre
 import com.github.kittinunf.fuel.android.extension.responseJson
 import com.github.kittinunf.fuel.httpGet
@@ -46,6 +49,7 @@ class DetailLivreFragment(private val href: String) : Fragment() {
                     lblISBNDetail.text = livre.ISBN
 
 
+                   lstCommentaires.adapter = CommentaireRecyclerViewAdapter(livre.commentaires)
 
 
 

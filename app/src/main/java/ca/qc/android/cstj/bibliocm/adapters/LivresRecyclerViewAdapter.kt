@@ -4,7 +4,6 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import ca.qc.android.cstj.bibliocm.R
 
 import ca.qc.android.cstj.bibliocm.fragments.LivreListFragment.OnListFragmentInteractionListener
@@ -24,7 +23,7 @@ class LivresRecyclerViewAdapter(private val mValues: List<Livre>,
         return ViewHolder(view)
     }
 
-    public override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(mValues[position])
         holder.mView.setOnClickListener{
             mListener!!.onListLivreFragmentInteraction(holder.livre)

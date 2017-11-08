@@ -3,15 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Tp2_Android_CMOBDI.iml" filepath="$PROJECT_DIR$/Tp2_Android_CMOBDI.iml" />
-<<<<<<< HEAD
-      <module fileurl="file://D:\tp_web\Tp2_Android_CMOBDI\Tp2_Android_CMOBDI.iml" filepath="D:\tp_web\Tp2_Android_CMOBDI\Tp2_Android_CMOBDI.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://D:\tp_web\Tp2_Android_CMOBDI\app\app.iml" filepath="D:\tp_web\Tp2_Android_CMOBDI\app\app.iml" />
-=======
-      <module fileurl="file://D:\TPweb\Tp2_Android_CMOBDI\Tp2_Android_CMOBDI.iml" filepath="D:\TPweb\Tp2_Android_CMOBDI\Tp2_Android_CMOBDI.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://D:\TPweb\Tp2_Android_CMOBDI\app\app.iml" filepath="D:\TPweb\Tp2_Android_CMOBDI\app\app.iml" />
->>>>>>> dbba826ffeaae580724aed7d630fe7539788982b
     </modules>
   </component>
 </project>

@@ -102,15 +102,16 @@
             android:textColor="#000"/>
 
         <android.support.v7.widget.RecyclerView
+
+            android:id="@+id/lstCommentaires"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/lstCommentaires">
+            tools:listitem="@layout/commentaire_card"
 
+            >
 
 
         </android.support.v7.widget.RecyclerView>
-
-
 
 
 

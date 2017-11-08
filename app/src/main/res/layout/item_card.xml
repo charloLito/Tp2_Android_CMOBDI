@@ -6,25 +6,48 @@
     android:layout_height="75dp"
     android:layout_width="match_parent"
     android:layout_margin="2dp"
-    card_view:cardBackgroundColor="@android:color/white"
+    card_view:cardBackgroundColor="#ffffe6"
     card_view:cardCornerRadius="2dp"
     card_view:cardElevation="2dp">
-    >
+
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:gravity="center"
         >
 
-        <TextView
-            android:id="@+id/lbltitre"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:textAppearance="?attr/textAppearanceListItem"
-            android:textSize="14dp" />
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/lbltitre"
+                android:gravity="center_vertical|left"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textSize="18dp"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|right" >
+
+            <ImageView
+                android:id="@+id/imgChevronRight"
+                android:layout_width="20dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                />
+
+
+        </LinearLayout>
 
 
     </LinearLayout>
