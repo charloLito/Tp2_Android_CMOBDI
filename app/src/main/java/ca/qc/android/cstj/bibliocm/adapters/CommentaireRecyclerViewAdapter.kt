@@ -34,14 +34,16 @@ class CommentaireRecyclerViewAdapter(private val mValues: List<Commentaire>): Re
 
         var lblMessage = mView.lblMessage
         var commentaire: Commentaire? = null
-
+        var lblNom = mView.lblNom
+        var lblPrenom = mView.lblPrenom
 
         fun bind(commentaire: Commentaire) {
             this.commentaire = commentaire
 
 
             lblMessage.text = commentaire.message
-
+            lblNom.text = commentaire.nom
+            lblPrenom.text = commentaire.prenom
 
 
 

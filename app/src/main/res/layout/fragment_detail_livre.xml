@@ -88,8 +88,8 @@
     <LinearLayout
 
         android:layout_marginTop="165dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -105,16 +105,77 @@
 
             android:id="@+id/lstCommentaires"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:listitem="@layout/commentaire_card"
-
-            >
+            android:layout_height="90dp"
+            tools:listitem="@layout/commentaire_card" >
 
 
         </android.support.v7.widget.RecyclerView>
 
 
 
+
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="275dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+
+        <EditText
+            android:id="@+id/txtNomPrenom"
+            android:layout_width="match_parent"
+
+            android:layout_height="50dp"
+            android:hint="Nom et prénom"
+            android:textSize="11dp"
+            android:textColor="#000" />
+
+        <EditText
+            android:gravity="top|left"
+            android:textAlignment="gravity"
+            android:id="@+id/txtCommentaire"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:hint="Votre commentaire"
+            android:textColor="#000"
+            android:textSize="11dp"/>
+
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="450dp">
+
+
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ratingBar"
+            android:stepSize="1.0"
+            android:numStars="5"
+            />
+
+
+        <Button
+            android:id="@+id/btnAjouter"
+            android:gravity="right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ajouter"/>
+
+
+
+    </LinearLayout>
+
 
 </FrameLayout>
