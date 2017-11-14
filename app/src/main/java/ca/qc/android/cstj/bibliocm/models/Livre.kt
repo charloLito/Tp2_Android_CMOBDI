@@ -18,6 +18,7 @@ class Livre(jsonObject: Json) : Item() {
 
     fun ConstruireListeCommentaires(tabCom:JSONArray){
 
+        commentaires.clear()
         for (i in 0.. (tabCom.length()-1)){
             commentaires.add(Commentaire(Json(tabCom[i].toString())))
         }

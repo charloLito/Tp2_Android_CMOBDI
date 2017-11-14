@@ -36,6 +36,7 @@ class CommentaireRecyclerViewAdapter(private val mValues: List<Commentaire>): Re
         var commentaire: Commentaire? = null
         var lblNom = mView.lblNom
         var lblPrenom = mView.lblPrenom
+        var rtbEtoiles=mView.rtbEtoiles
 
         fun bind(commentaire: Commentaire) {
             this.commentaire = commentaire
@@ -44,6 +45,7 @@ class CommentaireRecyclerViewAdapter(private val mValues: List<Commentaire>): Re
             lblMessage.text = commentaire.message
             lblNom.text = commentaire.nom
             lblPrenom.text = commentaire.prenom
+            rtbEtoiles.rating=commentaire.etoile.toFloat()
 
 
 

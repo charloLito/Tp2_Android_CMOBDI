@@ -1,14 +1,16 @@
 package ca.qc.android.cstj.bibliocm.models
 
 import com.github.kittinunf.fuel.android.core.Json
+import com.google.gson.GsonBuilder
+import com.google.gson.annotations.Expose
 
 
 class Commentaire() {
 
-    var message:String = ""
-    var etoile:Int = 0
-    var prenom:String = ""
-    var nom:String = ""
+    @Expose var message:String = ""
+    @Expose var etoile:Int = 0
+    @Expose var prenom:String = ""
+    @Expose var nom:String = ""
     var dateCommentaire:String = ""
     var href:String = ""
 
@@ -24,9 +26,6 @@ class Commentaire() {
     }
 
     fun toJson() : String {
-        var monJson  =
-                "{ \"etoile\": \"$etoile\", \"message\": \"$message\" ,\"prenom\": \"$prenom\", \"nom\": \"$nom\", \"dateCommentaire\": \"2017-02-12T12:31:00.000Z\" }"
-
-        return monJson
+        return GsonBuilder().excludeFieldsWithoutExposeAnnotation().create().toJson(this)
     }
 }
