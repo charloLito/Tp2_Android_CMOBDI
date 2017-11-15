@@ -2,7 +2,7 @@
 <android.support.v7.widget.CardView
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="75dp"
+    android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:layout_margin="2dp"
     card_view:cardBackgroundColor="@android:color/white"
@@ -12,58 +12,57 @@
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         >
 
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:id="@+id/lblPrenom"
+                    android:layout_gravity="left"
                     android:textSize="12dp"
-                    android:layout_weight="1"
                     android:textColor="#000"/>
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:paddingLeft="5dp"
                     android:id="@+id/lblNom"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="1"
                     android:textSize="12dp"
                     android:textColor="#000"/>
 
-        </LinearLayout>
+            </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/lblMessage"
-                android:layout_weight="1"
                 android:textSize="12dp"
+                android:layout_gravity="bottom"
                 android:textColor="#000"/>
 
             <RatingBar
                 android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:numStars="5"
-                android:scaleX="0.5"
-                android:scaleY="0.5"
                 android:layout_height="wrap_content"
+                android:max="5"
+                android:numStars="5"
+                android:scaleY="0.5"
+                android:scaleX="0.5"
+                android:layout_gravity="right"
+                android:isIndicator="true"
+                android:transformPivotY="0dp"
+                android:transformPivotX="0dp"
                 android:id="@+id/rtbEtoiles"/>
 
-        </LinearLayout>
+
 
     </LinearLayout>
 
