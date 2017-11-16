@@ -61,7 +61,7 @@ class DetailLivreFragment(private val href: String) : Fragment() {
                         commentairePost.nom = txtNom.text.toString()
                         commentairePost.prenom=txtPrenom.text.toString()
                         commentairePost.dateCommentaire = "2017-02-12T12:31:00.000Z"
-                        commentairePost.etoile = ratingBar.numStars
+                        commentairePost.etoile = ratingBar.rating.toInt()
                         commentairePost.message = txtCommentaire.text.toString()
 
                         var postHref = href + "/commentaires"
