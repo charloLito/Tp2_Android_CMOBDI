@@ -17,6 +17,8 @@
             android:textStyle="bold"
             android:textSize="22dip"
             android:layout_marginTop="4dp"
+            android:textColor="#000"
+
             />
     </LinearLayout>
         <LinearLayout
@@ -30,18 +32,21 @@
                 android:layout_weight="1"
                 android:text="@string/adresse"
                 android:textStyle="bold"
+                android:textColor="#000"
                 />
             <TextView
                 android:id="@+id/lblAdresseSuccursaleDetail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#000"/>
         </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp">
+        android:layout_margin="5dp"
+        >
 
         <TextView
             android:text="@string/ville"
@@ -49,12 +54,14 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:textStyle="bold"
+            android:textColor="#000"
             />
         <TextView
             android:id="@+id/lblVilleSuccursaleDetail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textColor="#000"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -67,13 +74,15 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:textStyle="bold"
+            android:textColor="#000"
             />
 
         <TextView
             android:id="@+id/lblCodePostalSuccursaleDetail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textColor="#000"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -87,12 +96,14 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:textStyle="bold"
+            android:textColor="#000"
             />
         <TextView
             android:id="@+id/lblProvinceSuccursaleDetail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textColor="#000"/>
     </LinearLayout>
 
     <LinearLayout
@@ -105,12 +116,14 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:textStyle="bold"
+            android:textColor="#000"
             />
         <TextView
             android:id="@+id/lblTelephoneSuccursaleDetail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textColor="#000"/>
     </LinearLayout>
 
 
@@ -125,12 +138,14 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:textStyle="bold"
+            android:textColor="#000"
             />
         <TextView
             android:id="@+id/lblTelecopieurSuccursaleDetail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textColor="#000"/>
     </LinearLayout>
 
     <LinearLayout
@@ -142,11 +157,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/heureouverture"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textColor="#000"/>
         <TextView
             android:id="@+id/lblInformationSuccursaleDetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textColor="#000"/>
     </LinearLayout>
 </LinearLayout>

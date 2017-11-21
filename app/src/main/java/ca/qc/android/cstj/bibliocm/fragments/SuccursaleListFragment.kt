@@ -20,19 +20,9 @@ import com.github.kittinunf.fuel.android.core.Json
 import com.github.kittinunf.fuel.android.extension.responseJson
 import com.github.kittinunf.fuel.httpGet
 
-/**
- * A fragment representing a list of Items.
- *
- *
- * Activities containing this fragment MUST implement the [OnListFragmentInteractionListener]
- * interface.
- */
-/**
- * Mandatory empty constructor for the fragment manager to instantiate the
- * fragment (e.g. upon screen orientation changes).
- */
+//Un fragment est comme un UserControl en WPF, mais ce n'est pas
+
 class SuccursaleListFragment : Fragment() {
-    // TODO: Customize parameters
     private var mColumnCount = 1
     private var mListener: OnListFragmentItemInteractionListener? = null
 
@@ -95,10 +85,8 @@ class SuccursaleListFragment : Fragment() {
 
     companion object {
 
-        // TODO: Customize parameter argument names
         private val ARG_COLUMN_COUNT = "column-count"
 
-        // TODO: Customize parameter initialization
         fun newInstance(columnCount: Int): SuccursaleListFragment {
             val fragment = SuccursaleListFragment()
             val args = Bundle()

@@ -15,18 +15,15 @@ import com.github.kittinunf.fuel.android.extension.responseJson
 import com.github.kittinunf.fuel.httpGet
 import kotlinx.android.synthetic.main.fragment_detail_succursale.*
 
-/**
- * A simple [Fragment] subclass.
- * Use the [DetailSuccursaleFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+//Un fragment est comme un UserControl en WPF, mais ce n'est pas
+
 class DetailSuccursaleFragment(private val href: String) : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
         href.httpGet().responseJson { request, response, result ->
-            when (response.httpStatusCode) {
+            when (response.statusCode) {
                 200 -> {
                     // Quand ça marche
                     val succursale = Succursale(result.get())

@@ -97,12 +97,14 @@ class MainActivity : AppCompatActivity(),
             is Succursale -> {item
                 val transaction=fragmentManager.beginTransaction()
                 transaction.replace(R.id.contentFrame,DetailSuccursaleFragment(item.href))
+                //Ajoute au backstack pour, lors de l'appuie sur back, revient au fragment précédent
                 transaction.addToBackStack("succursalesList")
                 transaction.commit()
             }
             is Categorie -> {item
                 val transaction=fragmentManager.beginTransaction()
                 transaction.replace(R.id.contentFrame,LivreListFragment(item.href+"/livres"))
+                //Ajoute au backstack pour, lors de l'appuie sur back, revient au fragment précédent
                 transaction.addToBackStack("categorieList")
                 transaction.commit()
             }
@@ -116,6 +118,7 @@ class MainActivity : AppCompatActivity(),
         val transaction=fragmentManager.beginTransaction()
         if(livre != null)
         transaction.replace(R.id.contentFrame,DetailLivreFragment(livre.href))
+        //Ajoute au backstack pour, lors de l'appuie sur back, revient au fragment précédent
         transaction.addToBackStack("livreList")
         transaction.commit()
     }

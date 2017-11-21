@@ -22,12 +22,12 @@ import com.github.kittinunf.fuel.android.extension.responseJson
 import com.github.kittinunf.fuel.httpGet
 
 
+//Un fragment est comme un UserControl en WPF, mais ce n'est pas
 
 class LivreListFragment(categorieHref: String): Fragment() {
 
 
     private var href = categorieHref
-    // TODO: Customize parameters
     private var mColumnCount = 1
     private var mListener: OnListFragmentInteractionListener? = null
 
@@ -53,12 +53,6 @@ class LivreListFragment(categorieHref: String): Fragment() {
             } else {
                 view.layoutManager = GridLayoutManager(context, mColumnCount)
             }
-
-            // Faire un get sur le href de la catégorie touchée.
-            // "href": "https://issatherrien-tp01-olivierissacstj.c9users.io/categories/NmVhMjk1ZDctYzk2My00NGY3LTkxOGMtY2UyOWU3YTI1Mjdk"
-            // Ajouter "/livres"
-
-
 
             href.httpGet().responseJson{ request, response, result ->
                 view.adapter= LivresRecyclerViewAdapter(createLivreList(result.get()), mListener)
@@ -95,18 +89,14 @@ class LivreListFragment(categorieHref: String): Fragment() {
 
 
     interface OnListFragmentInteractionListener {
-        // TODO: Update argument type and name
         fun onListLivreFragmentInteraction(livre: Livre?)
     }
 
     companion object {
 
-        // TODO: Customize parameter argument names
         private val ARG_COLUMN_COUNT = "column-count"
-        // TODO: Customize parameter initialization
         fun newInstance(columnCount: Int): LivreListFragment {
 
-            // TODO: Vérifier le href à passer au LivreListFragment. C'est bizz
             val fragment = LivreListFragment("href")
             val args = Bundle()
             args.putInt(ARG_COLUMN_COUNT, columnCount)

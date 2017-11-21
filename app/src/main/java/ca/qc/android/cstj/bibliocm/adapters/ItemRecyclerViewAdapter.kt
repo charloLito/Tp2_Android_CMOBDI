@@ -11,11 +11,10 @@ import ca.qc.android.cstj.bibliocm.models.Item
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_card.view.*
 
-/**
- * [RecyclerView.Adapter] that can display a [DummyItem] and makes a call to the
- * specified [OnListFragmentInteractionListener].
- * TODO: Replace the implementation with code for your data type.
- */
+
+
+// Ceci est une classe mère pour ne pas avoir a répéter le code de LivresAdapter et CatégorieAdapter
+//On utilise un adapter seulement pour une Liste de données (Recycler view)
 class ItemRecyclerViewAdapter(private val mValues: List<Item>,
                               private val mListener: OnListFragmentItemInteractionListener?) : RecyclerView.Adapter<ItemRecyclerViewAdapter.ViewHolder>() {
 

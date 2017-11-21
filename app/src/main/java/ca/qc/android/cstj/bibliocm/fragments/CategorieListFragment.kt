@@ -20,17 +20,11 @@ import com.github.kittinunf.fuel.android.core.Json
 import com.github.kittinunf.fuel.android.extension.responseJson
 import com.github.kittinunf.fuel.httpGet
 
-/**
- * A simple [Fragment] subclass.
- * Activities that contain this fragment must implement the
- * [CategorieListFragment.OnFragmentInteractionListener] interface
- * to handle interaction events.
- * Use the [CategorieListFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
+//Un fragment est comme un UserControl en WPF, mais ce n'est pas
+
 class CategorieListFragment : Fragment() {
 
-    // TODO: Customize parameters
     private var mColumnCount = 1
     private var mListener: OnListFragmentItemInteractionListener? = null
 

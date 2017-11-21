@@ -18,7 +18,7 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.commentaire_card.*
 import kotlinx.android.synthetic.main.fragment_detail_livre.*
 
-
+//Un fragment est comme un UserControl en WPF, mais ce n'est pas
 class DetailLivreFragment(private val href: String) : Fragment() {
 
     private lateinit var livre:Livre
@@ -48,10 +48,17 @@ class DetailLivreFragment(private val href: String) : Fragment() {
                     lblISBNDetail.text = livre.ISBN
 
                     lstCommentaires.layoutManager = LinearLayoutManager(context)
+
+                    if(livre.commentaires.count() === 0)
+                    {
+                        lblCommentairesVide.visibility = View.VISIBLE
+                    }
                     lstCommentaires.adapter = CommentaireRecyclerViewAdapter(livre.commentaires)
                     lstCommentaires.adapter.notifyDataSetChanged()
 
+
                     btnAjouter.setOnClickListener {
+
 
                         var nom = txtNom.text.toString()
                         var prenom=txtPrenom.text.toString()
@@ -78,21 +85,16 @@ class DetailLivreFragment(private val href: String) : Fragment() {
                                     txtCommentaire.text.clear()
                                     ratingBar.rating=Float.MIN_VALUE
 
+                                    lblCommentairesVide.visibility = View.INVISIBLE
+
                                 }
+                                400 -> Toast.makeText(context, "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show()
+                                500 -> Toast.makeText(context, "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show()
                             }
-                        }
-
-
-
-                        /*Fuel.post(postHref).header("Content-Type" to "application/json").body(commentairePost.toJson()).responseJson { request, response, result ->
-                            when (response.httpStatusCode) {
-                                201 -> Toast.makeText(context, "Commentaire Ajouter", Toast.LENGTH_SHORT).show()
-                                404 -> Toast.makeText(context, "Not found", Toast.LENGTH_SHORT).show()
-                                500 -> Toast.makeText(context, "Erreur Serveur", Toast.LENGTH_SHORT).show()
-                            }*/
                         }
                     }
                 }
+            }
 
         }
         return inflater.inflate(R.layout.fragment_detail_livre, container, false)
